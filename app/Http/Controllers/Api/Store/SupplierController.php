@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\Store;
 
+use Illuminate\Http\Request;
 use App\Model\Store\Supplier;
-use App\Http\Requests\Request;
 use App\Http\Controllers\ApiController;
-use App\Http\Resources\SupplierResource;
+use App\Http\Resources\Store\Supplier\SupplierResource;
 use App\Http\Requests\Store\Supplier\SupplierStoreRequest;
 use App\Http\Requests\Store\Supplier\SupplierUpdateRequest;
 
@@ -13,7 +13,7 @@ class SupplierController extends ApiController
 {
     public function index(Request $request, Supplier $supplier)
     {
-        return $supplier->paginate($request->get('paginate', 20));
+        return SupplierResource::collection($supplier->paginate($request->get('paginate', 20)));
     }
 
     public function store(SupplierStoreRequest $request, Supplier $supplier)
@@ -39,7 +39,7 @@ class SupplierController extends ApiController
 
     public function destroy(Supplier $supplier)
     {
-        if ($supplier->products->count() > 1) {
+        if ($supplier->products->count() > 0) {
             return response()->json(__('store/supplier.errors.delete_with_products'), 400);
         }
 

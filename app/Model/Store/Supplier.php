@@ -57,11 +57,11 @@ class Supplier extends Model
     {
         return $this->belongsToMany(
             Product::class,
-            'supplier_products',
-            'product_id',
+            'supplier_product',
             'supplier_id',
             'product_id',
-            'supplier_id'
+            'supplier_id',
+            'product_id'
         );
     }
 }

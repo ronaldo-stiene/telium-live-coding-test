@@ -16,6 +16,9 @@ class CreateSupplierProductTable extends Migration
         Schema::create('supplier_product', function (Blueprint $table) {
             $table->id('supplier_product_id');
             $table->timestamps();
+            $table->unsignedBigInteger('supplier_id');
+            $table->unsignedBigInteger('product_id');
+
             $table->foreign('supplier_id')->references('supplier_id')->on('supplier');
             $table->foreign('product_id')->references('product_id')->on('product');
         });

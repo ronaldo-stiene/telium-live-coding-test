@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Store\ProductController;
 
-Route::apiResource('products', ProductController::class);
-Route::post('suppliers/{supplier}/products/{product}', 'ProductController@bind')->name('products.bind');
-Route::delete('suppliers/{supplier}/products/{product}', 'ProductController@unbind')->name('products.unbind');
+Route::apiResource('products', 'Api\Store\ProductController');
+Route::post('suppliers/{supplier}/products/{product}', 'Api\Store\ProductController@bind')->name('products.bind');
+Route::delete('suppliers/{supplier}/products/{product}', 'Api\Store\ProductController@unbind')->name('products.unbind');
