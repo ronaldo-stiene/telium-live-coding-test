@@ -17,8 +17,8 @@ Após o clone execute os comandos abaixo na ordem que estão informados:
 
 Instale todas as dependências do projeto em sua máquina, lembrando que é extremamente importante ter em sua maquina composer e php 7.4 instalados e configurados.
 
-[Instalação do PHP](https://www.php.net/downloads).
-[Instalação do Composer](https://getcomposer.org/download/).
+[Instalação do PHP](https://www.php.net/downloads)<br/>
+[Instalação do Composer](https://getcomposer.org/download/)
 
 ```
 composer install
